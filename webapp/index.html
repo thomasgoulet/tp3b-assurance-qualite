@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>
+    TP3-B Site de test
+  </title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <div class="container text-center pt-5">
+    <div class="row my-auto align-items-center">
+
+      <div class="col" id="first-test-content">
+
+        <h2>Multiply</h2>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-success" id="inputGroup-sizing-default">X</span>
+          </div>
+          <input id="test1-x" type="number" class="form-control" aria-label="X"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-success" id="inputGroup-sizing-default">Y</span>
+          </div>
+          <input id="test1-y" type="number" class="form-control" aria-label="Y"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-success" id="inputGroup-sizing-default">Result</span>
+          </div>
+          <input id="test1-result" type="number" disabled class="form-control" aria-label="Result"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+
+      </div>
+
+      <div class="col border-left border-right" id="second-test-content">
+
+        <h2>Add List Element</h2>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-info" id="inputGroup-sizing-default">Content</span>
+          </div>
+          <input id="test2-content" type="text" class="form-control" aria-label="Content"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <button type="button" onclick="addToListTest2()" class="btn btn-info" style="width: 100%;">Add</button>
+
+        <ul id="test2-list" class="pt-3">
+        </ul>
+
+      </div>
+
+      <div class="col">
+
+        <h2>Hide Table Item</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="test3-tbody">
+            <tr id="test3-row1">
+              <th scope="row">1</th>
+              <td>Pier-Luc</td>
+              <td>Dupéré</td>
+              <td>
+                <button type="button" onclick="hideRowTest3(1)" class="btn btn-sm btn-outline-warning py-0">x</button>
+              </td>
+            </tr>
+            <tr id="test3-row2">
+              <th scope="row">2</th>
+              <td>Thomas</td>
+              <td>Goulet</td>
+              <td>
+                <button type="button" onclick="hideRowTest3(2)" class="btn btn-sm btn-outline-warning py-0">x</button>
+              </td>
+            </tr>
+            <tr id="test3-row3">
+              <th scope="row">3</th>
+              <td>Alexis</td>
+              <td>Leblanc</td>
+              <td>
+                <button type="button" onclick="hideRowTest3(3)" class="btn btn-sm btn-outline-warning py-0">x</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type="button" onclick="showAllTest3()" class="btn btn-warning" style="width: 100%;">Show All</button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+  // Test 1
+  function calculateResultTest1() {
+
+    var x = document.getElementById("test1-x").value
+    var y = document.getElementById("test1-y").value
+
+    var result = x * y
+
+    document.getElementById("test1-result").value = result
+
+  }
+
+  document.getElementById("test1-x").addEventListener("input", calculateResultTest1);
+  document.getElementById("test1-y").addEventListener("input", calculateResultTest1);
+
+  // Test 2
+
+  function addToListTest2() {
+
+    var content = document.getElementById("test2-content").value;
+    var list = document.getElementById("test2-list");
+
+    listElement = document.createElement("li");
+    listElement.appendChild(document.createTextNode(content));
+    list.appendChild(listElement);
+
+  }
+
+  // Test 3
+
+  function hideRowTest3(row) {
+
+    var rowElement = document.getElementById("test3-row" + row);
+    rowElement.style.display = "none";
+
+  }
+
+  function showAllTest3() {
+
+    document.getElementById("test3-row1").style.display = "table-row";
+    document.getElementById("test3-row2").style.display = "table-row";
+    document.getElementById("test3-row3").style.display = "table-row";
+
+  }
+
+</script>

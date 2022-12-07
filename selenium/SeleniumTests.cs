@@ -23,9 +23,21 @@ public class SeleniumTests : IDisposable
     }
     
     [Fact]
-    public void Test1()
+    public void TestMultiply()
     {
-        Console.WriteLine(Driver.Title);
         System.Threading.Thread.Sleep(1000000);
     }
+
+    [Fact]
+    public void TestAddListElement()
+    {
+
+    }
+
+    [Fact]
+    public void TestHideShowAttribute()
+    {
+
+    }
+
 }
